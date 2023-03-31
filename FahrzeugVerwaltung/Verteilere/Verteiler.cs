@@ -16,7 +16,7 @@ namespace FahrzeugVerwaltung.Verteilere
             this.Fahrzeuge = list;
         }
 
-        public bool getFahrzeugAntwort()
+        public bool GetFahrzeugAntwort()
         {
             bool overallResult = true;
             foreach (var fahrzeug in this.Fahrzeuge)
@@ -25,6 +25,39 @@ namespace FahrzeugVerwaltung.Verteilere
                 {
                     Auftrag auftrag = new Auftrag { AnzahlContainer = 1 };
                     bool result = fahrzeug.GenugPlatz(auftrag);
+                }
+                catch (Exception ex) { overallResult = false; }
+            }
+
+            return overallResult;
+        }
+
+        public bool KeinFahrzeugPlatz(Auftrag auftrag)
+        {
+            bool overallResult = true;
+            foreach (var fahrzeug in this.Fahrzeuge)
+            {
+                try
+                {
+                    bool result = fahrzeug.GenugPlatz(auftrag);
+                    if (result)
+                        overallResult = false;
+                }
+                catch (Exception ex) { overallResult = false; }
+            }
+            return overallResult;
+        }
+
+        public bool KeinFahrzeugAkku(Auftrag auftrag)
+        {
+            bool overallResult = true;
+            foreach (var fahrzeug in this.Fahrzeuge)
+            {
+                try
+                {
+                    bool result = fahrzeug.GenugAkku(auftrag);
+                    if (result)
+                        overallResult = false;
                 }
                 catch (Exception ex) { overallResult = false; }
             }

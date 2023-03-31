@@ -10,6 +10,10 @@ namespace FahrzeugVerwaltung.Verteilere
     public interface IVerteiler
     {
         List<Fahrzeug> Fahrzeuge { get; set; }
-        bool getFahrzeugAntwort();
+        bool GetFahrzeugAntwort();
+
+        bool KeinFahrzeugPlatz(Auftrag auftrag);
+
+        bool KeinFahrzeugAkku(Auftrag auftrag);
     }
 }

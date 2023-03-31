@@ -11,7 +11,17 @@ namespace FahrzeugVerwaltung.Verteilere
     {
         public List<Fahrzeug> Fahrzeuge { get; set; }
 
-        public bool getFahrzeugAntwort()
+        public bool GetFahrzeugAntwort()
+        {
+            return false;
+        }
+
+        public bool KeinFahrzeugPlatz(Auftrag auftrag)
+        {
+            return false;
+        }
+
+        public bool KeinFahrzeugAkku(Auftrag auftrag)
         {
             return false;
         }

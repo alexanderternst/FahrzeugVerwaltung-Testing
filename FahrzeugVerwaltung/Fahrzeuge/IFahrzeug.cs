@@ -12,7 +12,10 @@ namespace FahrzeugVerwaltung.Fahrzeuge
         int CurrentContainers { get; set; }
         int Pos { get; set; }
         int Id { get; set; }
+        int Akku { get; set; }
 
         bool GenugPlatz(Auftrag auftrag);
+        bool GenugAkku(Auftrag auftrag);
+        bool KorrekterEndStandort(Auftrag auftrag);
     }
 }

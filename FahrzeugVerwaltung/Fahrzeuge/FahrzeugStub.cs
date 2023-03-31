@@ -13,8 +13,19 @@ namespace FahrzeugVerwaltung.Fahrzeuge
         public int CurrentContainers { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Pos { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Akku { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public bool GenugPlatz(Auftrag auftrag)
+        {
+            return false;
+        }
+
+        public bool KorrekterEndStandort(Auftrag auftrag)
+        {
+            return false;
+        }
+
+        public bool GenugAkku(Auftrag auftrag)
         {
             return false;
         }

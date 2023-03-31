@@ -10,7 +10,7 @@ namespace FahrzeugVerwaltung
 {
     public class TestFactory
     {
-        static bool isTest = false;
+        static bool isTest = true;
 
         public static IFahrzeug GetFahrzeug()
         {
@@ -34,6 +34,7 @@ namespace FahrzeugVerwaltung
 
             return new Verteiler(fahrzeugListe);
         }
+
         public static IVerteiler GetVerteiler()
         {
             if (isTest)
@@ -43,9 +44,9 @@ namespace FahrzeugVerwaltung
             else
             {
                 var fahrzeugListe = new List<Fahrzeug>();
-                fahrzeugListe.Add(new Fahrzeug { Id = 1, MaxContainers = 10, CurrentContainers = 8, Pos = 5 });
-                fahrzeugListe.Add(new Fahrzeug { Id = 2, MaxContainers = 10, CurrentContainers = 7, Pos = 2 });
-                fahrzeugListe.Add(new Fahrzeug { Id = 3, MaxContainers = 10, CurrentContainers = 5, Pos = 3, IsBroken = false });
+                fahrzeugListe.Add(new Fahrzeug { Id = 1, MaxContainers = 10, CurrentContainers = 8, Pos = 5, Akku = 50});
+                fahrzeugListe.Add(new Fahrzeug { Id = 2, MaxContainers = 10, CurrentContainers = 7, Pos = 2, Akku = 50 });
+                fahrzeugListe.Add(new Fahrzeug { Id = 3, MaxContainers = 10, CurrentContainers = 5, Pos = 3, IsBroken = false, Akku = 50 });
 
                 return new Verteiler(fahrzeugListe);
                 //throw new NotImplementedException("Verteiler wurde nicht implementiert.");
