@@ -23,8 +23,7 @@ namespace FahrzeugVerwaltung.Verteilere
             {
                 try
                 {
-                    Auftrag auftrag = new Auftrag { AnzahlContainer = 1 };
-                    bool result = fahrzeug.GenugPlatz(auftrag);
+                    fahrzeug.IstKapputt();
                 }
                 catch (Exception ex) { overallResult = false; }
             }

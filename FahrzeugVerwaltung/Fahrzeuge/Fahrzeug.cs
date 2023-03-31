@@ -15,11 +15,16 @@ namespace FahrzeugVerwaltung.Fahrzeuge
         public int Id { get; set; }
         public int Akku { get; set; }
 
-
-        public bool GenugPlatz(Auftrag auftrag)
+        public void IstKapputt()
         {
             if (IsBroken)
                 throw new ExecutionEngineException("Fahrzeug ist kapputt.");
+        }
+
+        public bool GenugPlatz(Auftrag auftrag)
+        {
+            //if (IsBroken)
+            //    throw new ExecutionEngineException("Fahrzeug ist kapputt.");
             if (auftrag.AnzahlContainer + CurrentContainers > MaxContainers)
                 return false;
             else
@@ -28,20 +33,18 @@ namespace FahrzeugVerwaltung.Fahrzeuge
 
         public bool GenugAkku(Auftrag auftrag)
         {
-            if (IsBroken)
-                throw new ExecutionEngineException("Fahrzeug ist kapputt.");
+            //if (IsBroken)
+            //    throw new ExecutionEngineException("Fahrzeug ist kapputt.");
+
             if (this.Akku > (auftrag.PosNach - auftrag.PosVon))
                 return true;
             else
                 return false;
-
-
-            //throw new NotImplementedException();
         }
 
         public bool KorrekterEndStandort(Auftrag auftrag)
         {
-            // In diesem Fall räpresentieren 0 = kein Standort
+            // In diesem Fall räpresentieren 0 = keinen Standort
             if (auftrag.PosNach == 0 || this.Pos == 0)
                 throw new ExecutionEngineException("Fahrzeug oder Auftrag hat keinen Endstandort.");
             if (this.Pos == auftrag.PosNach)

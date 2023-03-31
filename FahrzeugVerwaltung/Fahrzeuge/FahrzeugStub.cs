@@ -8,12 +8,17 @@ namespace FahrzeugVerwaltung.Fahrzeuge
 {
     public class FahrzeugStub : IFahrzeug
     {
-        public bool IsBroken { get; set; }
+        public bool IsBroken { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int MaxContainers { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int CurrentContainers { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Pos { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Akku { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public void IstKapputt()
+        {
+            throw new NotImplementedException();
+        }
 
         public bool GenugPlatz(Auftrag auftrag)
         {
