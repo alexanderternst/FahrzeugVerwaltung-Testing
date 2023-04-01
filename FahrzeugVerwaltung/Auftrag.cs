@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FahrzeugVerwaltung
+﻿namespace FahrzeugVerwaltung
 {
+    /// <summary>
+    /// Auftrag Model Klasse für Aufträge.
+    /// </summary>
     public class Auftrag
     {
         public int Id { get; set; }

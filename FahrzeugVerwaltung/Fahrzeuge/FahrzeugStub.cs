@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FahrzeugVerwaltung.Fahrzeuge
+﻿namespace FahrzeugVerwaltung.Fahrzeuge
 {
+    /// <summary>
+    /// FahrzeugStub Klasse welche das IFahrzeug Interface implementiert.
+    /// Wird für die UnitTests verwendet.
+    /// </summary>
     public class FahrzeugStub : IFahrzeug
     {
         public bool IsBroken { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

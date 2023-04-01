@@ -1,8 +1,18 @@
 namespace FahrzeugVerwaltungTest
 {
+    /// <summary>
+    /// TestKlasse welche die Fahrzeug Klasse testet.
+    /// Wenn in Factory IsTest = true ist, wird die VerteilerStub Klasse verwendet und Tests laufen nicht durch.
+    /// </summary>
     [TestClass]
     public class FahrzeugTests
     {
+        #region TestMethoden für GenugPlatz()
+
+        /// <summary>
+        /// TestMethode welche die Methode GenugPlatz() testet.
+        /// Test erwartet true da GenugPlatz vorhanden ist.
+        /// </summary>
         [TestMethod]
         public void Fahrzeug_GenugPlatz()
         {
@@ -20,6 +30,10 @@ namespace FahrzeugVerwaltungTest
             Assert.AreEqual(expectedResult, result);
         }
 
+        /// <summary>
+        /// TestMethode welche die Methode GenugPlatz() testet.
+        /// Test erwartet false da nicht GenugPlatz vorhanden ist.
+        /// </summary>
         [TestMethod]
         public void Fahrzeug_NichtGenugPlatz()
         {
@@ -37,6 +51,14 @@ namespace FahrzeugVerwaltungTest
             Assert.AreEqual(expectedResult, result);
         }
 
+        #endregion TestMethoden für GenugPlatz()
+
+        #region TestMethoden für KorrekterEndStandort()
+
+        /// <summary>
+        /// TestMethode welche die Methode KorrekterEndStandort() testet.
+        /// Test erwartet true da der Endstandort korrekt ist.
+        /// </summary>
         [TestMethod]
         public void Fahrzeug_KorrekterEndStandort()
         {
@@ -56,6 +78,10 @@ namespace FahrzeugVerwaltungTest
             Assert.AreEqual(expectedResult, result);
         }
 
+        /// <summary>
+        /// TestMethode welche die Methode KorrekterEndStandort() testet.
+        /// Test erwartet false da der Endstandort nicht korrekt ist.
+        /// </summary>
         [TestMethod]
         public void Fahrzeug_FalscherEndStandort()
         {
@@ -75,6 +101,12 @@ namespace FahrzeugVerwaltungTest
             Assert.AreEqual(expectedResult, result);
         }
 
+        /// <summary>
+        /// TestMethode welche die Methode KorrekterEndStandort() testet.
+        /// Test erwartet (durch ExceptedException) ExecutionEngineException Exception da kein Endstandort vorhanden ist.
+        /// Deshalb fällt auch Assert weg.
+        /// In diesem Fall ist 0 = Kein Standort.
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ExecutionEngineException), "Fahrzeug oder Auftrag hat keinen Endstandort.")]
         public void Fahrzeug_KeinEndStandort()
@@ -92,6 +124,14 @@ namespace FahrzeugVerwaltungTest
             // Kein Assert wird von ExpectedException Abgehandelt
         }
 
+        #endregion TestMethoden für KorrekterEndStandort()
+
+        #region TestMethoden für GenugAkku()
+
+        /// <summary>
+        /// TestMethode welche die Methode GenugAkku() testet.
+        /// Test erwartet true da GenugAkku vorhanden ist.
+        /// </summary>
         [TestMethod]
         public void Fahrzeug_GenugAkku()
         {
@@ -110,6 +150,10 @@ namespace FahrzeugVerwaltungTest
             Assert.AreEqual(expectedResult, result);
         }
 
+        /// <summary>
+        /// TestMethode welche die Methode GenugAkku() testet.
+        /// Test erwartet false da nicht GenugAkku vorhanden ist.
+        /// </summary>
         [TestMethod]
         public void Fahrzeug_ZuWenigAkku()
         {
@@ -127,5 +171,7 @@ namespace FahrzeugVerwaltungTest
             // Assert
             Assert.AreEqual(expectedResult, result);
         }
+
+        #endregion TestMethoden für GenugAkku()
     }
 }

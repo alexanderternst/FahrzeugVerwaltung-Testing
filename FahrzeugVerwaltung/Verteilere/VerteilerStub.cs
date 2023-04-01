@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FahrzeugVerwaltung.Fahrzeuge;
+﻿using FahrzeugVerwaltung.Fahrzeuge;
 
 namespace FahrzeugVerwaltung.Verteilere
 {
+    /// <summary>
+    /// VerteilerStub Klasse welche das IVerteiler Interface implementiert.
+    /// Wird für die UnitTests verwendet.
+    /// </summary>
     public class VerteilerStub : IVerteiler
     {
         public List<Fahrzeug> Fahrzeuge { get; set; }

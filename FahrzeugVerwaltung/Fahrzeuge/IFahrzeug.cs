@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FahrzeugVerwaltung.Fahrzeuge
+﻿namespace FahrzeugVerwaltung.Fahrzeuge
 {
+    /// <summary>
+    /// Interface für ein Fahrzeug.
+    /// </summary>
     public interface IFahrzeug
     {
         bool IsBroken { get; set; }
@@ -16,8 +13,11 @@ namespace FahrzeugVerwaltung.Fahrzeuge
         int Akku { get; set; }
 
         void IstKapputt();
+
         bool GenugPlatz(Auftrag auftrag);
+
         bool GenugAkku(Auftrag auftrag);
+
         bool KorrekterEndStandort(Auftrag auftrag);
     }
 }

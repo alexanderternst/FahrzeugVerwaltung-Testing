@@ -1,21 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FahrzeugVerwaltung.Fahrzeuge;
+﻿using FahrzeugVerwaltung.Fahrzeuge;
 
 namespace FahrzeugVerwaltung.Verteilere
 {
+    /// <summary>
+    /// Verteiler Klasse welche das IVerteiler Interface implementiert.
+    /// Implementiert die Methoden für den Verteiler.
+    /// </summary>
     public class Verteiler : IVerteiler
     {
         public List<Fahrzeug> Fahrzeuge { get; set; }
 
+        /// <summary>
+        /// Verteiler Konstruktor welcher eine Liste von Fahrzeugen bekommt.
+        /// </summary>
+        /// <param name="list"></param>
         public Verteiler(List<Fahrzeug> list)
         {
             this.Fahrzeuge = list;
         }
 
+        /// <summary>
+        /// Gibt eine Antwort zurück ob ein Fahrzeug kaputt ist.
+        /// Wenn ein Fahrzeug kapputt ist wird false zurückgegeben, sonst wird true zurückgegeben.
+        /// </summary>
+        /// <returns></returns>
         public bool GetFahrzeugAntwort()
         {
             bool overallResult = true;
@@ -31,6 +39,12 @@ namespace FahrzeugVerwaltung.Verteilere
             return overallResult;
         }
 
+        /// <summary>
+        /// Gibt eine Antwort zurück ob ein Fahrzeug genug Platz hat.
+        /// Wenn alle Fahrzeuge keinen Platz haben wird true zurückgegeben, sonst wird false zurückgegeben.
+        /// </summary>
+        /// <param name="auftrag"></param>
+        /// <returns></returns>
         public bool KeinFahrzeugPlatz(Auftrag auftrag)
         {
             bool overallResult = true;
@@ -47,6 +61,12 @@ namespace FahrzeugVerwaltung.Verteilere
             return overallResult;
         }
 
+        /// <summary>
+        /// Gibt eine Antwort zurück ob ein Fahrzeug genug Akku hat.
+        /// Wenn alle Fahrzeuge keinen Akku haben wird true zurückgegeben, sonst wird false zurückgegeben.
+        /// </summary>
+        /// <param name="auftrag"></param>
+        /// <returns></returns>
         public bool KeinFahrzeugAkku(Auftrag auftrag)
         {
             bool overallResult = true;
