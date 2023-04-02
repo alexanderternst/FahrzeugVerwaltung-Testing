@@ -7,7 +7,7 @@
     public class TestFactory
     {
         // Property welche bestimmt ob Test oder nicht.
-        private const bool IsTest = true;
+        private const bool IsTest = false;
 
         /// <summary>
         /// Methode welche ein Fahrzeug durch Interface zurückgibt.
