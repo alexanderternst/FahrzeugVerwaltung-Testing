@@ -1,7 +1,4 @@
-﻿using FahrzeugVerwaltung.Fahrzeuge;
-using FahrzeugVerwaltung.Verteilere;
-
-namespace FahrzeugVerwaltung
+﻿namespace FahrzeugVerwaltung
 {
     /// <summary>
     /// TestFactory für Ausführung von UnitTests und Methoden durch IVerteiler und IFahrzeug Interface.
@@ -26,7 +23,6 @@ namespace FahrzeugVerwaltung
             else
             {
                 return new Fahrzeug();
-                //throw new NotImplementedException("Fahrzeug wurde nicht implementiert.");
             }
         }
 
@@ -62,10 +58,9 @@ namespace FahrzeugVerwaltung
                 var fahrzeugListe = new List<Fahrzeug>();
                 fahrzeugListe.Add(new Fahrzeug { Id = 1, MaxContainers = 10, CurrentContainers = 8, Pos = 5, Akku = 50 });
                 fahrzeugListe.Add(new Fahrzeug { Id = 2, MaxContainers = 10, CurrentContainers = 7, Pos = 2, Akku = 50 });
-                fahrzeugListe.Add(new Fahrzeug { Id = 3, MaxContainers = 10, CurrentContainers = 5, Pos = 3, IsBroken = false, Akku = 50 });
+                fahrzeugListe.Add(new Fahrzeug { Id = 3, MaxContainers = 10, CurrentContainers = 5, Pos = 3, Akku = 50, IsBroken = false });
 
                 return new Verteiler(fahrzeugListe);
-                //throw new NotImplementedException("Verteiler wurde nicht implementiert.");
             }
         }
     }

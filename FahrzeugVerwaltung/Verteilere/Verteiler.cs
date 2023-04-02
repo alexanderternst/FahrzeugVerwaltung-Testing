@@ -1,6 +1,4 @@
-﻿using FahrzeugVerwaltung.Fahrzeuge;
-
-namespace FahrzeugVerwaltung.Verteilere
+﻿namespace FahrzeugVerwaltung.Verteilere
 {
     /// <summary>
     /// Verteiler Klasse welche das IVerteiler Interface implementiert.
@@ -11,7 +9,7 @@ namespace FahrzeugVerwaltung.Verteilere
         public List<Fahrzeug> Fahrzeuge { get; set; }
 
         /// <summary>
-        /// Verteiler Konstruktor welcher eine Liste von Fahrzeugen bekommt.
+        /// Verteiler Konstruktor welcher eine Liste von Fahrzeugen (von der Factory) bekommt.
         /// </summary>
         /// <param name="list"></param>
         public Verteiler(List<Fahrzeug> list)
@@ -31,9 +29,9 @@ namespace FahrzeugVerwaltung.Verteilere
             {
                 try
                 {
-                    fahrzeug.IstKapputt();
+                    fahrzeug.IstKaputt();
                 }
-                catch (Exception ex) { overallResult = false; }
+                catch (Exception) { overallResult = false; }
             }
 
             return overallResult;
@@ -56,7 +54,7 @@ namespace FahrzeugVerwaltung.Verteilere
                     if (result)
                         overallResult = false;
                 }
-                catch (Exception ex) { overallResult = false; }
+                catch (Exception) { overallResult = false; }
             }
             return overallResult;
         }
@@ -78,7 +76,7 @@ namespace FahrzeugVerwaltung.Verteilere
                     if (result)
                         overallResult = false;
                 }
-                catch (Exception ex) { overallResult = false; }
+                catch (Exception) { overallResult = false; }
             }
             return overallResult;
         }

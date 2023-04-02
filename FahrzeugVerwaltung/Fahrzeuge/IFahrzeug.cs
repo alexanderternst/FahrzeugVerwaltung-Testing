@@ -12,7 +12,7 @@
         int Id { get; set; }
         int Akku { get; set; }
 
-        void IstKapputt();
+        void IstKaputt();
 
         bool GenugPlatz(Auftrag auftrag);
 

@@ -1,6 +1,4 @@
-﻿using FahrzeugVerwaltung.Fahrzeuge;
-
-namespace FahrzeugVerwaltung.Verteilere
+﻿namespace FahrzeugVerwaltung.Verteilere
 {
     /// <summary>
     /// Interface für den Verteiler.

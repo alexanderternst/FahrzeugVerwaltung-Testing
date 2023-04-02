@@ -17,7 +17,7 @@
         /// Methode welche überprüft ob das Fahrzeug kapputt ist.
         /// </summary>
         /// <exception cref="ExecutionEngineException"></exception>
-        public void IstKapputt()
+        public void IstKaputt()
         {
             if (IsBroken)
                 throw new ExecutionEngineException("Fahrzeug ist kapputt.");

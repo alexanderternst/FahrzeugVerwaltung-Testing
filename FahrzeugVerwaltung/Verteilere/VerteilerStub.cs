@@ -1,6 +1,4 @@
-﻿using FahrzeugVerwaltung.Fahrzeuge;
-
-namespace FahrzeugVerwaltung.Verteilere
+﻿namespace FahrzeugVerwaltung.Verteilere
 {
     /// <summary>
     /// VerteilerStub Klasse welche das IVerteiler Interface implementiert.

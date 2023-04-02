@@ -64,11 +64,10 @@ namespace FahrzeugVerwaltungTest
         {
             // Arrange
             IFahrzeug fahrzeug = TestFactory.GetFahrzeug();
-            fahrzeug.Pos = 1;
-            fahrzeug.Id = 1;
-            fahrzeug.CurrentContainers = 0;
+            fahrzeug.Pos = 5;
+            fahrzeug.MaxContainers = 10;
 
-            Auftrag auftrag = new Auftrag { Id = 1, PosVon = 1, PosNach = 1, AnzahlContainer = 1 };
+            Auftrag auftrag = new Auftrag { Id = 1, PosVon = 1, PosNach = 5, AnzahlContainer = 1 };
             bool expectedResult = true;
 
             // Act
@@ -87,9 +86,8 @@ namespace FahrzeugVerwaltungTest
         {
             // Arrange
             IFahrzeug fahrzeug = TestFactory.GetFahrzeug();
-            fahrzeug.Pos = 10;
-            fahrzeug.Id = 1;
-            fahrzeug.CurrentContainers = 0;
+            fahrzeug.Pos = 5;
+            fahrzeug.MaxContainers = 10;
 
             Auftrag auftrag = new Auftrag { Id = 1, PosVon = 1, PosNach = 1, AnzahlContainer = 1 };
             bool expectedResult = false;
@@ -114,14 +112,15 @@ namespace FahrzeugVerwaltungTest
             // Arrange
             IFahrzeug fahrzeug = TestFactory.GetFahrzeug();
             fahrzeug.Pos = 0;
+            fahrzeug.MaxContainers = 10;
 
-            Auftrag auftrag = new Auftrag { PosNach = 0 };
+            Auftrag auftrag = new Auftrag { Id = 1, PosVon = 1, PosNach = 0, AnzahlContainer = 1 };
 
             // Act
-            bool result = fahrzeug.KorrekterEndStandort(auftrag);
+            fahrzeug.KorrekterEndStandort(auftrag);
 
             // Assert
-            // Kein Assert wird von ExpectedException Abgehandelt
+            // Assert wird von ExpectedException Abgehandelt
         }
 
         #endregion TestMethoden für KorrekterEndStandort()
@@ -137,10 +136,11 @@ namespace FahrzeugVerwaltungTest
         {
             // Arrange
             IFahrzeug fahrzeug = TestFactory.GetFahrzeug();
+            fahrzeug.Pos = 2;
             // Ein Akku = Eine Position
             fahrzeug.Akku = 100;
 
-            Auftrag auftrag = new Auftrag { PosVon = 1, PosNach = 2, AnzahlContainer = 1 };
+            Auftrag auftrag = new Auftrag { Id = 1, PosVon = 1, PosNach = 20, AnzahlContainer = 1 };
             bool expectedResult = true;
 
             // Act
@@ -159,11 +159,12 @@ namespace FahrzeugVerwaltungTest
         {
             // Arrange
             IFahrzeug fahrzeug = TestFactory.GetFahrzeug();
+            fahrzeug.Pos = 2;
             // Ein Akku = Eine Position
-            fahrzeug.Akku = 1;
+            fahrzeug.Akku = 10;
 
-            Auftrag auftrag = new Auftrag { PosVon = 1, PosNach = 4, AnzahlContainer = 1 };
-            bool expectedResult = false; // true bei stub
+            Auftrag auftrag = new Auftrag { Id = 1, PosVon = 1, PosNach = 20, AnzahlContainer = 1 };
+            bool expectedResult = false;
 
             // Act
             bool result = fahrzeug.GenugAkku(auftrag);
@@ -173,5 +174,29 @@ namespace FahrzeugVerwaltungTest
         }
 
         #endregion TestMethoden für GenugAkku()
+
+        #region TestMethode für IstKaputt()
+
+        /// <summary>
+        /// TestMethode welche die Methode IstKaputt() testet.
+        /// Test erwartet (durch ExceptedException) ExecutionEngineException Exception da Fahrzeug kapputt ist.
+        /// Deshalb fällt auch Assert weg.
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(ExecutionEngineException), "Fahrzeug ist kapputt.")]
+        public void Fahrzeug_IstKaputt()
+        {
+            // Arrange
+            IFahrzeug fahrzeug = TestFactory.GetFahrzeug();
+            fahrzeug.IsBroken = true;
+
+            // Act
+            fahrzeug.IstKaputt();
+
+            // Assert
+            // Assert wird von ExpectedException Abgehandelt
+        }
+
+        #endregion TestMethode für IstKaputt()
     }
 }

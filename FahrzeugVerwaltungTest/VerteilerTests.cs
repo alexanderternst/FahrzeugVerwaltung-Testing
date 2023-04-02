@@ -20,7 +20,6 @@
         {
             // Arrange
             IVerteiler verteiler = TestFactory.GetVerteiler();
-            //IFahrzeug fahrzeug = TestFactory.GetFahrzeug();
             bool expectedResult = true; // Bei Stub auf false
 
             // Act
@@ -39,7 +38,6 @@
         {
             // Arrange
             IVerteiler verteiler = TestFactory.GetVerteilerMitKaputtenFahrzeugen();
-            //IFahrzeug fahrzeug = TestFactory.GetFahrzeug();
             bool expectedResult = false;
 
             // Act
@@ -60,8 +58,9 @@
         [TestMethod]
         public void KeineFahrzeugeHabenPlatz()
         {
+            // Arrange
             IVerteiler verteiler = TestFactory.GetVerteiler();
-            Auftrag auftrag = new Auftrag() { AnzahlContainer = 12 };
+            Auftrag auftrag = new Auftrag() { Id = 1, AnzahlContainer = 15 };
             bool expectedResult = true; // Bei Stub auf false
 
             // Act
@@ -73,13 +72,13 @@
 
         /// <summary>
         /// TestMethode welche die Methode KeinFahrzeugPlatz() testet.
-        /// Test erwartet false da mindestens ein Fahrzeug Platz für den Auftrag hatt.
+        /// Test erwartet false da mindestens ein Fahrzeug Platz für den Auftrag hat.
         /// </summary>
         [TestMethod]
         public void FahrzeugeHabenPlatz()
         {
             IVerteiler verteiler = TestFactory.GetVerteiler();
-            Auftrag auftrag = new Auftrag() { AnzahlContainer = 3 };
+            Auftrag auftrag = new Auftrag() { Id = 1, AnzahlContainer = 3 };
             bool expectedResult = false;
 
             // Act
@@ -99,14 +98,15 @@
         /// </summary>
         [TestMethod]
         public void KeineFahrzeugeHabenAkku()
-
         {
             // Arrange
             IVerteiler verteiler = TestFactory.GetVerteiler();
-            Auftrag auftrag = new Auftrag() { AnzahlContainer = 12, PosVon = 1, PosNach = 100 };
+            Auftrag auftrag = new Auftrag() { Id = 1, AnzahlContainer = 3, PosVon = 1, PosNach = 80 };
             bool expectedResult = true; // Bei Stub auf false
+
             // Act
             bool result = verteiler.KeinFahrzeugAkku(auftrag);
+
             // Assert
             Assert.AreEqual(expectedResult, result);
         }
@@ -120,10 +120,12 @@
         {
             // Arrange
             IVerteiler verteiler = TestFactory.GetVerteiler();
-            Auftrag auftrag = new Auftrag() { AnzahlContainer = 12, PosVon = 1, PosNach = 16 };
+            Auftrag auftrag = new Auftrag() { Id = 1, AnzahlContainer = 3, PosVon = 1, PosNach = 20 };
             bool expectedResult = false;
+
             // Act
             bool result = verteiler.KeinFahrzeugAkku(auftrag);
+
             // Assert
             Assert.AreEqual(expectedResult, result);
         }

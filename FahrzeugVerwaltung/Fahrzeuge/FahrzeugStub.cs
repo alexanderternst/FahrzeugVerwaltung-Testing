@@ -13,7 +13,7 @@
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Akku { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public void IstKapputt()
+        public void IstKaputt()
         {
             throw new NotImplementedException();
         }
